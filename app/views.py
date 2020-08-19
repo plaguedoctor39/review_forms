@@ -30,10 +30,7 @@ def product_view(request, pk):
             return redirect('main_page')
     else:
         form = ReviewForm()
-    # print(product.name)
-    reviews = list(Review.objects.all())
-    # print(reviews)
-    # print(reviews)
+    reviews = list(Review.objects.filter(product=product))
     context = {
         'form': form,
         'product': product,
